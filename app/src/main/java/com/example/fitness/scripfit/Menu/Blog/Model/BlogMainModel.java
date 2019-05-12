@@ -12,10 +12,12 @@ public class BlogMainModel {
     private List<BlogModel> blog = null;
 
     public List<BlogModel> getBlog() {
+
         return blog;
     }
 
     public void setBlog(List<BlogModel> blog) {
+
         this.blog = blog;
     }
 
