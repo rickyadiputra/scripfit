@@ -12,9 +12,6 @@ public interface Api {
     @GET("rencana?transform=1")
     Call<RencanaMainModel> getRencana();
 
-    @GET("rencanaday?transform=1")
-    Call<RencanaDayMainModel> getRencanaDay();
-
     @GET("blog?transform=1")
     Call<BlogMainModel> getBlog();
 

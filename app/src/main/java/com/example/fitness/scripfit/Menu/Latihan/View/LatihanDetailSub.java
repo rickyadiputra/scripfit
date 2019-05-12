@@ -64,8 +64,6 @@ public class LatihanDetailSub extends AppCompatActivity implements LatihanPresen
         rl_latihan = (RelativeLayout) findViewById(R.id.rl_latihan);
         LatihanPresenter latihanPresenter = new LatihanPresenter(this);
         latihanPresenter.listLatihanById(id);
-
-
     }
 
     public void getText(){
