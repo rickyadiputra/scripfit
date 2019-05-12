@@ -92,53 +92,7 @@ public class LatihanDetailSub extends AppCompatActivity implements LatihanPresen
             WebSettings webSettings = wv_latihan.getSettings();
             webSettings.setJavaScriptEnabled(true);
             wv_latihan.getSettings().setPluginState(WebSettings.PluginState.ON);
-            wv_latihan.setWebChromeClient(new MyWebClient());
             wv_latihan.loadData(frameVideo, "text/html", "utf-8");
-        }
-    }
-
-    public class MyWebClient
-            extends WebChromeClient
-    {
-        private View mCustomView;
-        private WebChromeClient.CustomViewCallback mCustomViewCallback;
-        protected FrameLayout mFullscreenContainer;
-        private int mOriginalOrientation;
-        private int mOriginalSystemUiVisibility;
-
-        public MyWebClient() {}
-
-        public Bitmap getDefaultVideoPoster()
-        {
-            if (LatihanDetailSub.this == null) {
-                return null;
-            }
-            return BitmapFactory.decodeResource(LatihanDetailSub.this.getApplicationContext().getResources(), 2130837573);
-        }
-
-        public void onHideCustomView()
-        {
-            ((FrameLayout)LatihanDetailSub.this.getWindow().getDecorView()).removeView(this.mCustomView);
-            this.mCustomView = null;
-            LatihanDetailSub.this.getWindow().getDecorView().setSystemUiVisibility(this.mOriginalSystemUiVisibility);
-            LatihanDetailSub.this.setRequestedOrientation(this.mOriginalOrientation);
-            this.mCustomViewCallback.onCustomViewHidden();
-            this.mCustomViewCallback = null;
-        }
-
-        public void onShowCustomView(View paramView, WebChromeClient.CustomViewCallback paramCustomViewCallback)
-        {
-            if (this.mCustomView != null)
-            {
-                onHideCustomView();
-                return;
-            }
-            this.mCustomView = paramView;
-            this.mOriginalSystemUiVisibility = LatihanDetailSub.this.getWindow().getDecorView().getSystemUiVisibility();
-            this.mOriginalOrientation = LatihanDetailSub.this.getRequestedOrientation();
-            this.mCustomViewCallback = paramCustomViewCallback;
-            ((FrameLayout)LatihanDetailSub.this.getWindow().getDecorView()).addView(this.mCustomView, new FrameLayout.LayoutParams(-1, -1));
-            LatihanDetailSub.this.getWindow().getDecorView().setSystemUiVisibility(3846);
         }
     }
 
